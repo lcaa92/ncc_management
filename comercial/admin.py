@@ -12,7 +12,7 @@ class ProductAdmin(admin.ModelAdmin):
     """
     Admin configuration for Product model.
     """
-    list_display = ["name", "price", "duration_months", "is_active", "created_at"]
+    list_display = ["name", "price", "duration", "is_active", "created_at"]
     list_filter = ["is_active", "created_at", "updated_at"]
     search_fields = ["name", "description"]
     readonly_fields = ["created_at", "updated_at", "deleted_at"]
@@ -25,7 +25,7 @@ class ProductAdmin(admin.ModelAdmin):
             "fields": ("name", "description", "is_active")
         }),
         ("Pricing & Duration", {
-            "fields": ("price", "duration_months")
+            "fields": ("price", "duration")
         }),
         ("Timestamps", {
             "fields": ("created_at", "updated_at", "deleted_at"),

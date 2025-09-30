@@ -24,8 +24,9 @@ class Product(BaseModel):
         decimal_places=2,
         help_text="Price of the product in local currency"
     )
-    duration_months = models.PositiveIntegerField(
-        help_text="Duration of the product in months"
+    duration = models.PositiveIntegerField(
+        help_text="Duration of the product in lessons",
+        default=24
     )
     is_active = models.BooleanField(
         default=True,
