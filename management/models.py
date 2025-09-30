@@ -5,6 +5,7 @@ Management models for the NCC School Management system.
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
 from common.models import BaseModel
+from financial.models import PaymentMethod
 
 
 class StudentsStatus(models.TextChoices):
@@ -101,6 +102,28 @@ class Contract(BaseModel):
         related_name="contracts",
         help_text="Product or course the student is enrolled in"
     )
+    payment_method = models.CharField(
+        max_length=20,
+        choices=PaymentMethod.choices,
+        help_text="Method used for the payment",
+        blank=True,
+        null=True
+    )
+    statements = models.IntegerField(
+        help_text="Number of statements for the contract",
+        blank=True,
+        null=True
+    )
+    first_lesson_on = models.DateField(
+        help_text="Date of the first lesson",
+        blank=True,
+        null=True
+    )
+    last_lesson_on = models.DateField(
+        help_text="Date of the last lesson",
+        blank=True,
+        null=True
+    )
 
     class Meta:
         db_table = "management_contracts"
@@ -123,7 +146,8 @@ class StudentsGroup(BaseModel):
     students = models.ManyToManyField(
         Student,
         related_name="groups",
-        help_text="Students enrolled in this group"
+        help_text="Students enrolled in this group",
+        blank=True
     )
     teacher = models.ForeignKey(
         Teacher,

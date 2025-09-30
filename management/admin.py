@@ -66,8 +66,9 @@ class ContractAdmin(admin.ModelAdmin):
     """
     Admin configuration for Contract model.
     """
-    list_display = ["student", "product", "created_at"]
-    list_filter = ["created_at", "updated_at"]
+    list_display = ["student", "product", "payment_method",
+                    "statements", "first_lesson_on", "last_lesson_on", "created_at"]
+    list_filter = ["created_at", "updated_at", "first_lesson_on", "last_lesson_on"]
     search_fields = ["student__name", "product__name"]
     readonly_fields = ["created_at", "updated_at", "deleted_at"]
     ordering = ["-created_at"]
@@ -76,7 +77,8 @@ class ContractAdmin(admin.ModelAdmin):
 
     fieldsets = (
         ("Contract Information", {
-            "fields": ("student", "product")
+            "fields": ("student", "product", "payment_method",
+                       "statements", "first_lesson_on", "last_lesson_on")
         }),
         ("Timestamps", {
             "fields": ("created_at", "updated_at", "deleted_at"),
