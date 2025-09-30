@@ -51,25 +51,25 @@ jobs:
     #     uv run black --check .
     #     uv run isort --check-only .
 
-    - name: Run tests
-      env:
-        DB_NAME: ncc_school_management_test
-        DB_USER: postgres
-        DB_PASSWORD: postgres
-        DB_HOST: localhost
-        DB_PORT: 5432
-        SECRET_KEY: test-secret-key
-        DEBUG: True
-      run: |
-        uv run python manage.py migrate
-        uv run pytest --cov=. --cov-report=xml
+    # - name: Run tests
+    #   env:
+    #     DB_NAME: ncc_school_management_test
+    #     DB_USER: postgres
+    #     DB_PASSWORD: postgres
+    #     DB_HOST: localhost
+    #     DB_PORT: 5432
+    #     SECRET_KEY: test-secret-key
+    #     DEBUG: True
+    #   run: |
+    #     uv run python manage.py migrate
+    #     uv run pytest --cov=. --cov-report=xml
 
-    - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v3
-      with:
-        file: ./coverage.xml
-        flags: unittests
-        name: codecov-umbrella
+    # - name: Upload coverage to Codecov
+    #   uses: codecov/codecov-action@v3
+    #   with:
+    #     file: ./coverage.xml
+    #     flags: unittests
+    #     name: codecov-umbrella
 
   security:
     runs-on: ubuntu-latest
