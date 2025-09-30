@@ -2,9 +2,7 @@
 Tests for management models.
 """
 
-import pytest
 from django.test import TestCase
-from django.core.exceptions import ValidationError
 from django.utils import timezone
 from datetime import date
 
@@ -110,7 +108,7 @@ class ContractModelTest(TestCase):
         self.product = Product.objects.create(
             name="Python Course",
             price=299.99,
-            duration_months=6
+            duration=6
         )
 
     def test_create_contract(self):

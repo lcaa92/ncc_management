@@ -2,7 +2,6 @@
 Tests for CRM models.
 """
 
-import pytest
 from django.test import TestCase
 from datetime import date
 

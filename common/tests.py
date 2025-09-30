@@ -2,12 +2,11 @@
 Tests for common models and mixins.
 """
 
-import pytest
 from django.test import TestCase
 from django.utils import timezone
 from django.db import models
 
-from .models import TimestampMixin, SoftDeleteMixin, BaseModel
+from .models import TimestampMixin, SoftDeleteMixin
 
 
 class TestModel(TimestampMixin, SoftDeleteMixin, models.Model):

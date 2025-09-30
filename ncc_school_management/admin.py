@@ -4,11 +4,8 @@ Custom admin site configuration for NCC School Management.
 
 from django.contrib import admin
 from django.contrib.admin import AdminSite
-from django.utils.html import format_html
 from django.urls import path
 from django.shortcuts import render
-from django.contrib.admin.views.main import ChangeList
-from django.db.models import Count, Sum
 
 
 class NCCAdminSite(AdminSite):

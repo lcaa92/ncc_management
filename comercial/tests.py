@@ -2,9 +2,7 @@
 Tests for comercial models.
 """
 
-import pytest
 from django.test import TestCase
-from django.core.exceptions import ValidationError
 from decimal import Decimal
 
 from .models import Product
@@ -23,7 +21,7 @@ class ProductModelTest(TestCase):
             "name": "Python Programming Course",
             "description": "Learn Python from basics to advanced",
             "price": Decimal("299.99"),
-            "duration_months": 6,
+            "duration": 6,
             "is_active": True,
         }
 
@@ -34,7 +32,7 @@ class ProductModelTest(TestCase):
         product = Product.objects.create(**self.product_data)
         self.assertEqual(product.name, "Python Programming Course")
         self.assertEqual(product.price, Decimal("299.99"))
-        self.assertEqual(product.duration_months, 6)
+        self.assertEqual(product.duration, 6)
         self.assertTrue(product.is_active)
 
     def test_product_str_representation(self):
@@ -56,8 +54,8 @@ class ProductModelTest(TestCase):
         """
         Test Product model ordering.
         """
-        Product.objects.create(name="Z Course", price=Decimal("100"), duration_months=1)
-        Product.objects.create(name="A Course", price=Decimal("200"), duration_months=2)
+        Product.objects.create(name="Z Course", price=Decimal("100"), duration=1)
+        Product.objects.create(name="A Course", price=Decimal("200"), duration=2)
 
         products = Product.objects.all()
         self.assertEqual(products[0].name, "A Course")

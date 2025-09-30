@@ -37,7 +37,7 @@ class Migration(migrations.Migration):
                         decimal_places=2, help_text="Price of the product in local currency", max_digits=10
                     ),
                 ),
-                ("duration_months", models.PositiveIntegerField(help_text="Duration of the product in months")),
+                ("duration", models.PositiveIntegerField(help_text="Duration of the product in months")),
                 (
                     "is_active",
                     models.BooleanField(

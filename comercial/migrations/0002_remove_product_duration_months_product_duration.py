@@ -12,7 +12,7 @@ class Migration(migrations.Migration):
     operations = [
         migrations.RemoveField(
             model_name="product",
-            name="duration_months",
+            name="duration",
         ),
         migrations.AddField(
             model_name="product",

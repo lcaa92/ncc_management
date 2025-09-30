@@ -2,19 +2,16 @@
 Tests for API views and serializers.
 """
 
-import pytest
-from django.test import TestCase
 from django.urls import reverse
 from rest_framework.test import APITestCase, APIClient
 from rest_framework import status
 from django.contrib.auth.models import User
 from rest_framework_simplejwt.tokens import RefreshToken
 from decimal import Decimal
-from datetime import datetime, date
+from datetime import date
 
 from comercial.models import Product
-from financial.models import Payment, TeacherPayments, PaymentMethod
-from management.models import Student, Teacher, Contract, StudentsGroup, Lesson
+from management.models import Student, Teacher
 from crm.models import Lead
 
 
@@ -52,7 +49,7 @@ class ProductAPITest(APITestCase):
             "name": "Python Course",
             "description": "Learn Python programming",
             "price": "299.99",
-            "duration_months": 6,
+            "duration": 6,
             "is_active": True,
         }
 
@@ -72,7 +69,7 @@ class ProductAPITest(APITestCase):
         Product.objects.create(**{
             "name": "Python Course",
             "price": Decimal("299.99"),
-            "duration_months": 6
+            "duration": 6
         })
 
         url = reverse("product-list")
@@ -87,7 +84,7 @@ class ProductAPITest(APITestCase):
         product = Product.objects.create(**{
             "name": "Python Course",
             "price": Decimal("299.99"),
-            "duration_months": 6
+            "duration": 6
         })
 
         url = reverse("product-detail", kwargs={"pk": product.pk})
@@ -102,7 +99,7 @@ class ProductAPITest(APITestCase):
         product = Product.objects.create(**{
             "name": "Python Course",
             "price": Decimal("299.99"),
-            "duration_months": 6
+            "duration": 6
         })
 
         url = reverse("product-detail", kwargs={"pk": product.pk})
@@ -118,7 +115,7 @@ class ProductAPITest(APITestCase):
         product = Product.objects.create(**{
             "name": "Python Course",
             "price": Decimal("299.99"),
-            "duration_months": 6
+            "duration": 6
         })
 
         url = reverse("product-detail", kwargs={"pk": product.pk})

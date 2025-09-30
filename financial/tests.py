@@ -2,9 +2,7 @@
 Tests for financial models.
 """
 
-import pytest
 from django.test import TestCase
-from django.core.exceptions import ValidationError
 from django.utils import timezone
 from decimal import Decimal
 

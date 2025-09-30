@@ -2,7 +2,7 @@
 Test settings for the NCC School Management system.
 """
 
-from .settings import *
+from .settings import *  # noqa: F403, F401
 
 # Use SQLite for testing
 DATABASES = {
@@ -12,6 +12,7 @@ DATABASES = {
     }
 }
 
+
 # Disable migrations for faster tests
 class DisableMigrations:
     def __contains__(self, item):
@@ -19,6 +20,7 @@ class DisableMigrations:
 
     def __getitem__(self, item):
         return None
+
 
 MIGRATION_MODULES = DisableMigrations()
 

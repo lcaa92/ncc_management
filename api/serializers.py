@@ -4,10 +4,9 @@ API serializers for the NCC School Management system.
 
 from rest_framework import serializers
 from comercial.models import Product
-from financial.models import Payment, TeacherPayments, PaymentMethod
+from financial.models import Payment, TeacherPayments
 from management.models import (
-    Student, Teacher, Contract, StudentsGroup, Lesson,
-    StudentsStatus, TeacherStatus
+    Student, Teacher, Contract, StudentsGroup, Lesson
 )
 from crm.models import Lead
 
